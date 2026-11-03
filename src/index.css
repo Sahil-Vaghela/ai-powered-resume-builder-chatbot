@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+:root {
+  --primary-green: #087A50;
+  --accent-green: #059669;
+  --dark-green: #065F46;
+  --light-green: #DDF2E8;
+  --user-bubble: #E5F3EB;
+  --bg-main: #FAFAF8;
+  --bg-card: #FFFFFF;
+  --text-primary: #202923;
+  --text-secondary: #4B5750;
+  --text-muted: #78847D;
+  --border-color: #E9EDE9;
+  --success: #6D9B83;
+  --error: #C77D86;
+  font-family: 'Inter', 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: #FAFAF8;
+  color: #202923;
+  font-family: 'Inter', 'Manrope', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Responsive typography using clamp() */
+.text-clamp-heading {
+  font-size: clamp(24px, 3.8vw, 36px);
+  line-height: 1.2;
+}
+
+.text-clamp-subheading {
+  font-size: clamp(13px, 1.3vw, 15px);
+  line-height: 1.5;
+}
+
+.text-clamp-body {
+  font-size: clamp(13px, 1.1vw, 14px);
+  line-height: 1.5;
+}
+
+/* Mobile safe area utility */
+.safe-pb {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* SaaS Card & Surface System (Clean replacement for legacy Neomorphism) */
+.neu-raised {
+  background-color: #FFFFFF;
+  border: 1px solid #E9EDE9;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+
+.neu-raised-hover:hover {
+  border-color: #087A50;
+  box-shadow: 0 4px 12px 0 rgba(8, 122, 80, 0.08);
+  transform: translateY(-1px);
+}
+
+.neu-raised-hover:active,
+.neu-raised:active {
+  transform: translateY(0);
+}
+
+.neu-inset {
+  background-color: #FAFAF8;
+  border: 1px solid #E9EDE9;
+}
+
+.neu-subtle {
+  background-color: #FFFFFF;
+  border: 1px solid #E9EDE9;
+}
+
+.neu-subtle-hover:hover {
+  background-color: #DDF2E8;
+  border-color: #087A50;
+  color: #087A50;
+}
+
+.neu-pressed {
+  background-color: #DDF2E8;
+  border: 1px solid #087A50;
+  color: #087A50;
+}
+
+/* Primary Emerald Buttons */
+.neu-button-primary {
+  background-color: #087A50;
+  color: #FFFFFF;
+  box-shadow: 0 1px 2px 0 rgba(8, 122, 80, 0.2);
+  transition: all 0.15s ease-in-out;
+}
+
+.neu-button-primary:hover:not(:disabled) {
+  background-color: #065F46;
+  box-shadow: 0 4px 10px 0 rgba(8, 122, 80, 0.25);
+}
+
+.neu-button-primary:active:not(:disabled) {
+  background-color: #054835;
+  transform: translateY(1px);
+}
+
+/* Secondary White/Subtle Buttons */
+.neu-button-secondary {
+  background-color: #FFFFFF;
+  color: #202923;
+  border: 1px solid #E9EDE9;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  transition: all 0.15s ease-in-out;
+}
+
+.neu-button-secondary:hover:not(:disabled) {
+  background-color: #FAFAF8;
+  border-color: #D0D7D2;
+  color: #087A50;
+}
+
+.neu-button-secondary:active:not(:disabled),
+.neu-button-secondary.active {
+  background-color: #DDF2E8;
+  border-color: #087A50;
+  color: #087A50;
+}
+
+/* Inset / Clean Input Fields */
+.neu-input {
+  background-color: #FFFFFF;
+  color: #202923;
+  border: 1px solid #E9EDE9;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.neu-input:focus {
+  outline: none;
+  border-color: #087A50;
+  box-shadow: 0 0 0 2px rgba(8, 122, 80, 0.15);
+}
+
+.neu-input.error {
+  border-color: #C77D86;
+  box-shadow: 0 0 0 2px rgba(199, 125, 134, 0.15);
+}
+
+.neu-input.success {
+  border-color: #6D9B83;
+}
+
+/* Custom Clean Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4DBD6;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A0ABA4;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  aside, header, nav, .print\:hidden {
+    display: none !important;
+  }
+  #resume-a4-document {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
